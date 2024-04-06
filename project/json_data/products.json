@@ -1,0 +1,54 @@
+[
+{
+  "model": "catalog.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "product_title": "Педигри",
+    "product_description": null,
+    "image": "",
+    "price": null,
+    "created_at": null,
+    "updated_at": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 2,
+  "fields": {
+    "category": 2,
+    "product_title": "Салфетки",
+    "product_description": null,
+    "image": "",
+    "price": null,
+    "created_at": null,
+    "updated_at": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 3,
+  "fields": {
+    "category": 3,
+    "product_title": "Пиво",
+    "product_description": null,
+    "image": "",
+    "price": null,
+    "created_at": null,
+    "updated_at": null
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 4,
+  "fields": {
+    "category": 4,
+    "product_title": "Лейс",
+    "product_description": null,
+    "image": "",
+    "price": null,
+    "created_at": null,
+    "updated_at": null
+  }
+}
+]
