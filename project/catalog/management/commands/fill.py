@@ -1,6 +1,9 @@
 import json
 import pathlib
+
+import psycopg2
 from django.core.management import BaseCommand
+from django.db import connection
 
 from catalog.models import Category, Product
 
@@ -32,6 +35,10 @@ class Command(BaseCommand):
 
         category_for_create = []
         product_for_create = []
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "TRUNCATE TABLE catalog_category, catalog_product RESTART IDENTITY CASCADE;")
 
         # Заполнение категорий
         for category in Command.json_read_categories():
