@@ -22,8 +22,8 @@ class Product(models.Model):
     product_description = models.TextField(verbose_name='Описание', **NULLABLE)
     image = models.ImageField(upload_to='products/', verbose_name='Изображение (превью)', **NULLABLE)
     price = models.IntegerField(verbose_name='Цена за покупку', **NULLABLE)
-    created_at = models.DateTimeField(verbose_name='Дата создания (записи в БД)', **NULLABLE)
-    updated_at = models.DateTimeField(verbose_name='Дата последнего изменения (записи в БД)', **NULLABLE)
+    created_at = models.DateTimeField(verbose_name='Дата создания (записи в БД)', **NULLABLE, auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name='Дата последнего изменения (записи в БД)', **NULLABLE, auto_now=True)
 
     def __str__(self):
         return f'{self.product_title}: {self.category}'
