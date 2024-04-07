@@ -81,6 +81,8 @@ DATABASES = {
         'NAME': 'northwind',
         'USER': 'postgres',
         'PASSWORD': '1111',
+        'HOST': '0.0.0.0',
+        'PORT': '5432',
     }
 }
 
