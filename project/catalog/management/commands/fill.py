@@ -7,7 +7,7 @@ from django.db import connection
 
 from catalog.models import Category, Product
 
-ROOT = pathlib.Path(__file__).parent.parent.parent.parent
+ROOT = pathlib.Path(__file__).parent.parent.parent.parent.parent
 DATA_CATEGORY = pathlib.Path(ROOT, 'json_data', 'categories.json')
 DATA_PRODUCT = pathlib.Path(ROOT, 'json_data', 'products.json')
 
