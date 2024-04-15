@@ -7,7 +7,7 @@
     "product_title": "Педигри",
     "product_description": null,
     "image": "",
-    "price": null,
+    "price": 80,
     "created_at": null,
     "updated_at": null
   }
@@ -20,7 +20,7 @@
     "product_title": "Салфетки",
     "product_description": null,
     "image": "",
-    "price": null,
+    "price": 150,
     "created_at": null,
     "updated_at": null
   }
@@ -33,7 +33,7 @@
     "product_title": "Пиво",
     "product_description": null,
     "image": "",
-    "price": null,
+    "price": 100,
     "created_at": null,
     "updated_at": null
   }
@@ -46,7 +46,7 @@
     "product_title": "Лейс",
     "product_description": null,
     "image": "",
-    "price": null,
+    "price": 120,
     "created_at": null,
     "updated_at": null
   }

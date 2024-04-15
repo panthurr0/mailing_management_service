@@ -55,6 +55,7 @@ class Command(BaseCommand):
             product_fields = product.get('fields')
             product_for_create.append(
                 Product(product_title=product_fields.get('product_title'),
-                        category=Category.objects.get(pk=product_fields.get('category')))
+                        category=Category.objects.get(pk=product_fields.get('category')),
+                        price=product_fields.get('price'))
             )
         Product.objects.bulk_create(product_for_create)
