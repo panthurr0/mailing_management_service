@@ -1,0 +1,18 @@
+{% load my_tags %}
+<div class="col mb-5">
+    <div class="card mb-4 rounded-3 shadow-sm h-100">
+        <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{ object.product_title }}</h4>
+        </div>
+        <div class="card-body">
+            <img src="{{ object.image|media_path }}" class="card-img-top" alt="картинки нет(">
+            <ul class="list-unstyled mt-3 mb-4">
+                <li>{{ object.price }}</li>
+                <li>{{ object.category }}</li>
+            </ul>
+            <a href="{% url 'catalog:product_info' object.pk %}"
+               class="w-100 btn btn-lg btn-outline-primary">Посмотреть</a>
+        </div>
+    </div>
+</div>
+
