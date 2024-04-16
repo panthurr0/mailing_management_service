@@ -1,0 +1,54 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "product_title": "Педигри",
+      "product_description": "Лакомство для собачек",
+      "image": "products/61Gm70FJSxL._AC_UF10001000_QL80__ZIuDkCu.jpg",
+      "price": 80,
+      "created_at": "2024-04-16T06:49:48.116Z",
+      "updated_at": "2024-04-16T06:52:26.335Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "product_title": "Салфетки",
+      "product_description": "Не влажные",
+      "image": "products/5bnynjzse5745byubd5ih07ur2ra0sxp_cnMX01D.jpg",
+      "price": 150,
+      "created_at": "2024-04-16T06:49:48.116Z",
+      "updated_at": "2024-04-16T06:52:46.098Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "product_title": "Пиво",
+      "product_description": "Пиво вредное",
+      "image": "products/dd874232e9ef11eca80654a05054786b_9cafb2b8cc2811ed8ce054a05054786b_euBFkfW.jpg",
+      "price": 100,
+      "created_at": "2024-04-16T06:49:48.117Z",
+      "updated_at": "2024-04-16T06:52:53.146Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "category": 4,
+      "product_title": "Лейс",
+      "product_description": "Чипсики вкусные",
+      "image": "products/81TWeuyzk3L._SL1500__kFXq39w.jpg",
+      "price": 120,
+      "created_at": "2024-04-16T06:49:48.117Z",
+      "updated_at": "2024-04-16T06:52:10.918Z"
+    }
+  }
+]
