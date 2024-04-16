@@ -4,7 +4,11 @@ from django.shortcuts import get_object_or_404
 
 
 def home(request):
-    return render(request, 'main/home.html')
+    context = {
+        'title': 'Products',
+        'object_list': Product.objects.all(),
+    }
+    return render(request, 'main/home.html', context=context)
 
 
 def contacts(request):
@@ -25,10 +29,3 @@ def product_info(request, pk):
 
     return render(request, 'main/product_info.html', context=context)
 
-
-def products(request):
-    context = {
-        'title': 'Products',
-        'object_list': Product.objects.all(),
-    }
-    return render(request, 'main/products.html', context=context)
