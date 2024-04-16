@@ -24,9 +24,9 @@ def product_info(request, pk):
     return render(request, 'main/product_info.html', context=context)
 
 
-def index(request):
+def products(request):
     context = {
         'title': 'Products',
         'object_list': Product.objects.all(),
     }
-    return render(request, 'main/index.html', context=context)
+    return render(request, 'main/products.html', context=context)
