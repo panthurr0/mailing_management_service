@@ -1,7 +1,7 @@
-{% extends 'main/base.html' %}
+{% extends 'catalog/base.html' %}
 {% block title %}
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal text-body-emphasis">{{ title }}</h1>
+    <h1 class="display-4 fw-normal text-body-emphasis">{{ object.product_title }}</h1>
 </div>
 {% endblock %}
 
@@ -9,7 +9,7 @@
 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 
     {% for object in object_list %}
-        {% include 'main/includes/product_card.html' %}
+        {% include 'catalog/includes/product_card.html' %}
     {% endfor %}
 
 </div>
