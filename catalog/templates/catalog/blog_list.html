@@ -8,7 +8,7 @@
     <div class="card mb-4 box-shadow">
         <div class="card-body">
             <p class="card-text">
-                {{ object|title }}
+                {{ object.title }}
             </p>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
@@ -19,6 +19,9 @@
                     <a href="{% url 'catalog:blog_delete' object.pk %}"
                        class="btn btn-sm btn-outline-danger">Delete</a>
                 </div>
+            </div>
+            <div class="card-footer">
+                Просмотры: {{ object.views }}
             </div>
         </div>
     </div>

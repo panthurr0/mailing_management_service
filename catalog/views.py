@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy, reverse
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 from pytils.translit import slugify
@@ -82,40 +82,3 @@ class BlogDetailView(DetailView):
         self.object.save()
 
         return self.object
-
-
-# def toggle_activity(request, pk):
-#     blog_item = get_object_or_404(Blog, pk=pk)
-#     if blog_item.is_active:
-#         blog_item.is_active = False
-#     else:
-#         blog_item.is_active = True
-#     blog_item.save()
-#
-#     return redirect(reverse('catalog:blog_list'))
-
-
-# def home(request):
-#     context = {
-#         'title': 'Products',
-#         'object_list': Product.objects.all(),
-#     }
-#     return render(request, 'catalog/product_list.html', context=context)
-
-
-# def contacts(request):
-#     if request.method == 'POST':
-#         name = request.POST.get('name')
-#         email = request.POST.get('email')
-#         message = request.POST.get('message')
-#         print(f'{name} ({email}): {message}')
-#     return render(request, 'catalog/contacts.html')
-
-# def product_info(request, pk):
-#     product = get_object_or_404(Product, pk=pk)
-#     context = {
-#         'object': product,
-#         'title': 'About product',
-#     }
-#
-#     return render(request, 'catalog/product_detail.html', context=context)
