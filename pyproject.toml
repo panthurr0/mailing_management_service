@@ -13,6 +13,7 @@ psycopg2-binary = "^2.9.9"
 pillow = "^10.3.0"
 ipython = "^8.23.0"
 django-stubs = "^4.2.7"
+pytils = "^0.4.1"
 
 
 [build-system]
