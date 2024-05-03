@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import View
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 from pytils.translit import slugify
 
+from catalog.forms import ProductForm
 from catalog.models import Product, Blog
 
 
@@ -13,6 +14,12 @@ class ProductListView(ListView):
 
 class ProductDetailView(DetailView):
     model = Product
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+    success_url = reverse_lazy('catalog:blog_list')
 
 
 class ContactsView(View):
@@ -55,7 +62,7 @@ class BlogUpdateView(UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse_lazy('catalog:blog_list')
+        return reverse('catalog:blog_view', kwargs={'pk': self.object.pk})
 
 
 class BlogDeleteView(DeleteView):

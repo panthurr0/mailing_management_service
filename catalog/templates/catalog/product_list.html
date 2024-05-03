@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+<div class="col-12 mb-5">
+    <a class="btn btn-outline-primary" href="{% url 'catalog:product_create' %}">Добавить товар</a>
+</div>
 <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
 
     {% for object in object_list %}
