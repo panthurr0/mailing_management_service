@@ -14,7 +14,11 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn btn-success">
+                        {% if object %}
+                        Сохранить изменения
+                        {% elif not object %}
                         Создать
+                        {% endif %}
                     </button>
                 </div>
                 <div class="card-footer"></div>
