@@ -1,0 +1,42 @@
+[
+  {
+    "model": "catalog.version",
+    "pk": 1,
+    "fields": {
+      "product": 4,
+      "version_number": 1,
+      "version_title": "С чем-нибудь",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "version_number": 1,
+      "version_title": "Для котиков тож пойдёт",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 3,
+    "fields": {
+      "product": 2,
+      "version_number": 2,
+      "version_title": "Салфетня",
+      "is_active": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 4,
+    "fields": {
+      "product": 3,
+      "version_number": 5,
+      "version_title": "Безалкогольное",
+      "is_active": true
+    }
+  }
+]
