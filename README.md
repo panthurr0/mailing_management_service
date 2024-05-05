@@ -1,1 +1,1 @@
-/
+run python manage.py fill to apply fixtures
