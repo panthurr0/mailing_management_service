@@ -1,6 +1,6 @@
 from django import forms
 
-from catalog.models import Product
+from catalog.models import Product, Version
 
 
 class StyleFormMixin:
@@ -35,3 +35,11 @@ class ProductForm(StyleFormMixin, forms.ModelForm):
                 raise forms.ValidationError(f'Недопустимое слово в описании: "{word}"')
 
         return cleaned_data
+
+
+class VersionForm(StyleFormMixin, forms.ModelForm):
+    class Meta:
+        model = Version
+        # exclude = ('is_active', )
+        fields = '__all__'
+

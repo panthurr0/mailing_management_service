@@ -5,11 +5,13 @@ import psycopg2
 from django.core.management import BaseCommand
 from django.db import connection
 
-from catalog.models import Category, Product, Blog
+from catalog.models import Category, Product, Blog, Version
 
 ROOT = pathlib.Path(__file__).parent.parent.parent.parent
 DATA_CATEGORY = pathlib.Path(ROOT, 'json_data', 'categories.json')
 DATA_PRODUCT = pathlib.Path(ROOT, 'json_data', 'products.json')
+DATA_VERSIONS = pathlib.Path(ROOT, 'json_data', 'versions.json')
+
 DATA_BLOG = pathlib.Path(ROOT, 'json_data', 'blog.json')
 
 
@@ -30,6 +32,13 @@ class Command(BaseCommand):
         return [info for info in file_info]
 
     @staticmethod
+    def json_read_versions() -> list:
+        # Здесь мы получаем данные из фикстур с версиями
+        with open(DATA_VERSIONS) as file:
+            file_info = json.load(file)
+        return [info for info in file_info]
+
+    @staticmethod
     def json_read_blogs() -> list:
         # Здесь мы получаем данные из фикстур с блогами
         with open(DATA_BLOG) as file:
@@ -40,15 +49,18 @@ class Command(BaseCommand):
         # Очистка базы данных перед заполнением
         Category.objects.all().delete()
         Product.objects.all().delete()
+        Version.objects.all().delete()
         Blog.objects.all().delete()
 
         category_for_create = []
         product_for_create = []
+        version_for_create = []
         blog_for_create = []
 
         with connection.cursor() as cursor:
             cursor.execute(
-                "TRUNCATE TABLE catalog_category, catalog_product, catalog_blog RESTART IDENTITY CASCADE;")
+                "TRUNCATE TABLE catalog_category, catalog_product, catalog_version, "
+                "catalog_blog RESTART IDENTITY CASCADE;")
 
         # Заполнение категорий
         for category in Command.json_read_categories():
@@ -71,6 +83,17 @@ class Command(BaseCommand):
                         image=product_fields.get('image'))
             )
         Product.objects.bulk_create(product_for_create)
+
+        # Заполнение версий
+        for version in Command.json_read_versions():
+            version_fields = version.get('fields')
+            version_for_create.append(
+                Version(product=Product.objects.get(pk=version_fields.get('product')),
+                        version_number=version_fields.get('version_number'),
+                        version_title=version_fields.get('version_title'),
+                        is_active=version_fields.get('is_active'))
+            )
+        Version.objects.bulk_create(version_for_create)
 
         # Заполнение блогов
         for blog in Command.json_read_blogs():

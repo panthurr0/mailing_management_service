@@ -4,7 +4,7 @@
     <a class="btn btn-outline-primary" href="{% url 'catalog:product_create' %}">Добавить товар</a>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     {% for object in object_list %}
         {% include 'catalog/includes/product_card.html' %}
     {% endfor %}

@@ -35,6 +35,20 @@ class Product(models.Model):
         ordering = ('product_title',)
 
 
+class Version(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    version_number = models.IntegerField(verbose_name='Номер версии', **NULLABLE)
+    version_title = models.CharField(verbose_name='Название версии', max_length=100, **NULLABLE)
+    is_active = models.BooleanField(verbose_name='признак текущей версии', **NULLABLE, default=False)
+
+    def __str__(self):
+        return f'{self.version_number} - {self.version_title}'
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'
+
+
 class Blog(models.Model):
     title = models.CharField(verbose_name='Название', max_length=100)
     slug = models.CharField(verbose_name='slug', max_length=150, **NULLABLE)

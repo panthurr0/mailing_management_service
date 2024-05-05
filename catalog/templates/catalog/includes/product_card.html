@@ -7,8 +7,12 @@
         <div class="card-body">
             <img src="{{ object.image|media_path }}" class="card-img-top" alt="картинки нет(">
             <ul class="list-unstyled mt-3 mb-4">
-                <li>{{ object.price }}</li>
-                <li>{{ object.category }}</li>
+                {% if object.version %}
+                    <li>Версия №{{ object.version.version_number }}</li>
+                    <li>{{ object.version.version_title }}</li>
+                {% endif %}
+                <li>Цена: {{ object.price }}</li>
+                <li>Категория: {{ object.category }}</li>
             </ul>
             <div class="btn-group">
                 <a href="{% url 'catalog:product_edit' object.pk %}"

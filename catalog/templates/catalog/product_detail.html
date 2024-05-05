@@ -10,13 +10,13 @@
 <div class="col">
     <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">{{ object.product_title }}</h4>
+            <h4 class="my-0 fw-normal">{{ product.product_title }}</h4>
         </div>
         <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
                 <img src="{{ object.image|media_path }}" class="card-img-top" alt="картинки нет(">
-                <li>категория: {{ object.category }}</li>
-                <li>описание: {{ object.product_description|truncatechars:100 }}</li>
+                <li>категория: {{ product.category }}</li>
+                <li>описание: {{ product.product_description|truncatechars:100 }}</li>
             </ul>
         </div>
     </div>
