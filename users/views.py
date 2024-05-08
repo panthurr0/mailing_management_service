@@ -1,10 +1,8 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, FormView
+from django.views.generic import CreateView, UpdateView
 
 from users.forms import UserRegisterForm, UserProfileForm
 from users.models import User
-from users.services import send_email
 
 
 class RegisterView(CreateView):
