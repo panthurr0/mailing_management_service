@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 NULLABLE = {'blank': True, 'null': True}
 
 
@@ -22,6 +24,8 @@ class Product(models.Model):
     product_description = models.TextField(verbose_name='Описание', **NULLABLE)
     image = models.ImageField(verbose_name='Изображение (превью)', upload_to='catalog/', **NULLABLE)
     price = models.IntegerField(verbose_name='Цена за покупку', **NULLABLE)
+
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     created_at = models.DateTimeField(verbose_name='Дата создания (записи в БД)', **NULLABLE, auto_now_add=True)
     updated_at = models.DateTimeField(verbose_name='Дата последнего изменения (записи в БД)', **NULLABLE, auto_now=True)
