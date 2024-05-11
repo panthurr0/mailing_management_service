@@ -5,14 +5,18 @@ from users.models import User
 
 
 class UserRegisterForm(UserCreationForm):
-
     class Meta:
         model = User
         fields = ('email', 'password1', 'password2')
 
 
-class UserProfileForm(UserChangeForm):
+class UserChangePWForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ('email',)
 
+
+class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('email', 'first_name', 'last_name', 'phone_number', 'avatar',)
