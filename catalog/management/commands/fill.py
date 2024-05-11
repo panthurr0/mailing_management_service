@@ -1,11 +1,11 @@
 import json
 import pathlib
 
-import psycopg2
 from django.core.management import BaseCommand
 from django.db import connection
 
-from catalog.models import Category, Product, Blog, Version
+from blog.models import Blog
+from catalog.models import Category, Product, Version
 
 ROOT = pathlib.Path(__file__).parent.parent.parent.parent
 DATA_CATEGORY = pathlib.Path(ROOT, 'json_data', 'categories.json')
@@ -60,7 +60,7 @@ class Command(BaseCommand):
         with connection.cursor() as cursor:
             cursor.execute(
                 "TRUNCATE TABLE catalog_category, catalog_product, catalog_version, "
-                "catalog_blog RESTART IDENTITY CASCADE;")
+                "blog_blog RESTART IDENTITY CASCADE;")
 
         # Заполнение категорий
         for category in Command.json_read_categories():
