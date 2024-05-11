@@ -12,9 +12,13 @@ from catalog.models import Product, Version
 class ProductListView(LoginRequiredMixin, ListView):
     model = Product
 
+    def get_queryset(self):
+        # Фильтруем продукты по текущему пользователю
+        return Product.objects.filter(owner=self.request.user)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        product_list = context['product_list']
+        product_list = list(context['product_list'])
 
         for product in product_list:
             try:
@@ -35,6 +39,13 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
     success_url = reverse_lazy('catalog:product_list')
+
+    def form_valid(self, form):
+        product = form.save()
+        user = self.request.user
+        product.owner = user
+        user.save()
+        return super().form_valid(form)
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
