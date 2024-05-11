@@ -10,12 +10,6 @@ class UserRegisterForm(UserCreationForm):
         fields = ('email', 'password1', 'password2')
 
 
-class UserChangePWForm(UserChangeForm):
-    class Meta:
-        model = User
-        fields = ('email',)
-
-
 class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
