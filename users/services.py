@@ -7,15 +7,14 @@ from users.models import User
 
 
 def verification_key():
-    return randint(1000, 9998)
+    return randint(999, 9998)
 
 
-def send_email(user: User):
-    key = verification_key()
+def send_email(user: User, host, token):
+    url = f'http://{host}/email-confirm/{token}/'
     send_mail(
-        'Ваш пароль для регистрации',
-        f'Пароль: {key}',
+        'Ссылка для регистрации',
+        f'Ссылка: {url}',
         settings.EMAIL_HOST_USER,
         [user.email]
     )
-    return key
