@@ -143,9 +143,12 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = reverse_lazy('users:login')
 LOGOUT_REDIRECT_URL = '/'
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@oscarbot.ru'
-EMAIL_HOST_PASSWORD = 'AsTSNVv7pun9'
+EMAIL_HOST_USER = '.'
+EMAIL_HOST_PASSWORD = '.'
 EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+
+SERVER_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
