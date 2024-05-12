@@ -1,6 +1,6 @@
 [
   {
-    "model": "catalog.blog",
+    "model": "blog.blog",
     "pk": 1,
     "fields": {
       "title": "Насколько быстрее стали терминалы в GNOME 46?",
@@ -13,7 +13,7 @@
     }
   },
   {
-    "model": "catalog.blog",
+    "model": "blog.blog",
     "pk": 2,
     "fields": {
       "title": "Всё что вы хотели знать про ACL в Active Directory",
