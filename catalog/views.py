@@ -41,11 +41,10 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
-        product = form.save()
-        user = self.request.user
-        product.owner = user
-        user.save()
-        return super().form_valid(form)
+        self.object = form.save(commit=False)
+        self.object.owner = self.request.user
+        self.object.save()
+        return redirect('catalog:product_list')
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
