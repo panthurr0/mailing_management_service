@@ -22,7 +22,7 @@ def send_email(user: User, host, token: int | str):
     )
 
 
-def generate_password(length: int = 5) -> str:
+def generate_password(length: int = 8) -> str:
     characters = string.ascii_letters + string.digits + string.punctuation
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
