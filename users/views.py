@@ -19,8 +19,10 @@ class RegisterView(CreateView):
         user = form.save()
         user.is_active = False
         host = self.request.get_host()
+
         token = verification_key()
         user.token = token
+
         user.save()
         send_email(user, host, token)
         return super().form_valid(form)

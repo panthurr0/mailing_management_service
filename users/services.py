@@ -28,7 +28,7 @@ def generate_password(length: int = 5) -> str:
     return password
 
 
-def send_password(user_email, password):
+def send_password(user_email: str, password: str):
     subject = 'Ваш пароль'
     message = f'Вот ваш новый пароль: {password}'
     sender_email = settings.EMAIL_HOST_USER
