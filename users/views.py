@@ -45,12 +45,11 @@ class ChangePWView(FormView):
         email = form.cleaned_data['email']
         user = User.objects.get(email=email)
 
-        new_password = generate_password()
-        hashed_passwrd = make_password(new_password, salt=None, hasher="default")
-
-        user.set_password(hashed_passwrd)
+        new_password = generate_password(length=8)
+        user.set_password(new_password)
         user.save()
-        send_password(user, hashed_passwrd)
+
+        send_password(user.email, new_password)
 
         return super().form_valid(form)
 
