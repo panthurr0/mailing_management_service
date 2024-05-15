@@ -1,11 +1,12 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 
-from catalog.forms import ProductForm, VersionForm
+from catalog.forms import ProductForm, VersionForm, ProductModerForm, ProductSuperUserForm
 from catalog.models import Product, Version
 
 
@@ -14,7 +15,11 @@ class ProductListView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         # Фильтруем продукты по текущему пользователю
-        return Product.objects.filter(owner=self.request.user)
+        user = self.request.user
+        if user.has_perm("catalog.can_edit_is_active") and user.has_perm(
+                "catalog.can_edit_product_description") and user.has_perm("catalog.can_edit_product_category"):
+            return Product.objects.all()
+        return Product.objects.filter(owner=user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -41,6 +46,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('catalog:product_list')
 
     def form_valid(self, form):
+        # привязывает текущего пользователя к созданному продукту
         self.object = form.save(commit=False)
         self.object.owner = self.request.user
         self.object.save()
@@ -76,6 +82,17 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
             return super().form_valid(form)
         else:
             return self.render_to_response(self.get_context_data(form=form, formset=formset))
+
+    def get_form_class(self):
+        user = self.request.user
+        if user == self.object.owner:
+            return ProductForm
+        if user.is_superuser:
+            return ProductSuperUserForm
+        if user.has_perm("catalog.can_edit_is_active") and user.has_perm(
+                "catalog.can_edit_product_description") and user.has_perm("catalog.can_edit_product_category"):
+            return ProductModerForm
+        raise PermissionDenied
 
 
 class ContactsView(View):
