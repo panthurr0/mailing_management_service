@@ -81,6 +81,7 @@ class Command(BaseCommand):
                         category=Category.objects.get(pk=product_fields.get('category')),
                         price=product_fields.get('price'),
                         owner=User.objects.get(pk=product_fields.get('owner')),
+                        is_active=product_fields.get('is_active'),
                         product_description=product_fields.get('product_description'),
                         image=product_fields.get('image'))
             )
