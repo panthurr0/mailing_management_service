@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import PasswordResetForm
-from django.contrib.auth.hashers import make_password
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, FormView

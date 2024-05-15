@@ -8,9 +8,10 @@
       "product_description": "Лакомство для собачек",
       "image": "products/61Gm70FJSxL._AC_UF10001000_QL80__ZIuDkCu.jpg",
       "price": 80,
+      "is_active": true,
       "owner": 1,
-      "created_at": "2024-05-11T15:13:54.610Z",
-      "updated_at": "2024-05-11T22:52:20.025Z"
+      "created_at": "2024-05-12T16:12:07.373Z",
+      "updated_at": "2024-05-12T16:12:07.373Z"
     }
   },
   {
@@ -22,9 +23,10 @@
       "product_description": "Не влажные",
       "image": "products/5bnynjzse5745byubd5ih07ur2ra0sxp_cnMX01D.jpg",
       "price": 150,
+      "is_active": true,
       "owner": 1,
-      "created_at": "2024-05-11T15:13:54.610Z",
-      "updated_at": "2024-05-11T15:13:54.610Z"
+      "created_at": "2024-05-12T16:12:07.373Z",
+      "updated_at": "2024-05-12T16:12:07.373Z"
     }
   },
   {
@@ -36,9 +38,10 @@
       "product_description": "Пиво вредное",
       "image": "products/dd874232e9ef11eca80654a05054786b_9cafb2b8cc2811ed8ce054a05054786b_euBFkfW.jpg",
       "price": 100,
+      "is_active": true,
       "owner": 1,
-      "created_at": "2024-05-11T15:13:54.610Z",
-      "updated_at": "2024-05-11T15:13:54.610Z"
+      "created_at": "2024-05-12T16:12:07.373Z",
+      "updated_at": "2024-05-12T16:12:07.373Z"
     }
   },
   {
@@ -50,9 +53,10 @@
       "product_description": "Чипсики вкусные",
       "image": "products/81TWeuyzk3L._SL1500__kFXq39w.jpg",
       "price": 120,
+      "is_active": true,
       "owner": 1,
-      "created_at": "2024-05-11T15:13:54.610Z",
-      "updated_at": "2024-05-11T22:52:15.740Z"
+      "created_at": "2024-05-12T16:12:07.373Z",
+      "updated_at": "2024-05-15T10:29:44.647Z"
     }
   }
 ]

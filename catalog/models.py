@@ -25,6 +25,7 @@ class Product(models.Model):
     image = models.ImageField(verbose_name='Изображение (превью)', upload_to='catalog/', **NULLABLE)
     price = models.IntegerField(verbose_name='Цена за покупку', **NULLABLE)
 
+    is_active = models.BooleanField(verbose_name='Признак публикации', default=True, **NULLABLE)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     created_at = models.DateTimeField(verbose_name='Дата создания (записи в БД)', **NULLABLE, auto_now_add=True)
@@ -37,6 +38,11 @@ class Product(models.Model):
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
         ordering = ('product_title',)
+        permissions = [
+            ("can_edit_is_active", "edit is active"),
+            ("can_edit_product_description", "edit product description"),
+            ("can_edit_product_category", "edit product category")
+        ]
 
 
 class Version(models.Model):
