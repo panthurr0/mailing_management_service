@@ -19,8 +19,10 @@
                     <div class="btn-group">
                         <a href="{% url 'catalog:product_edit' object.pk %}"
                            class="btn btn-sm btn-outline-secondary">Редактировать</a>
+                        {% if not perms.catalog.can_edit_is_active or user.is_superuser %}
                         <a href="{% url 'catalog:product_delete' object.pk %}"
                            class="btn btn-sm btn-outline-danger">Удалить</a>
+                        {% endif %}
                     </div>
                 </div>
                 <a href="{% url 'catalog:product_view' object.pk %}"
