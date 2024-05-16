@@ -17,9 +17,11 @@
             <div class="card-footer">
                 <div class="d-flex justify-content-between">
                     <div class="btn-group">
+                        {% if perms.catalog.can_edit_is_active or user.is_superuser or user == object.owner %}
                         <a href="{% url 'catalog:product_edit' object.pk %}"
                            class="btn btn-sm btn-outline-secondary">Редактировать</a>
-                        {% if not perms.catalog.can_edit_is_active or user.is_superuser %}
+                        {% endif %}
+                        {% if user.is_superuser or user == object.owner%}
                         <a href="{% url 'catalog:product_delete' object.pk %}"
                            class="btn btn-sm btn-outline-danger">Удалить</a>
                         {% endif %}

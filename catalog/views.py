@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.forms import inlineformset_factory
 from django.shortcuts import render, redirect
@@ -12,14 +12,6 @@ from catalog.models import Product, Version
 
 class ProductListView(LoginRequiredMixin, ListView):
     model = Product
-
-    def get_queryset(self):
-        # Фильтруем продукты по текущему пользователю
-        user = self.request.user
-        if user.has_perm("catalog.can_edit_is_active") and user.has_perm(
-                "catalog.can_edit_product_description") and user.has_perm("catalog.can_edit_product_category"):
-            return Product.objects.all()
-        return Product.objects.filter(owner=user)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
