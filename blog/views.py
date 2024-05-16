@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
 from pytils.translit import slugify
@@ -6,10 +6,10 @@ from pytils.translit import slugify
 from blog.models import Blog
 
 
-class BlogCreateView(CreateView):
+class BlogCreateView(UserPassesTestMixin, CreateView):
     model = Blog
     fields = ('title', 'content', 'preview', 'is_published')
-    success_url = reverse_lazy('catalog:blog_list')
+    success_url = reverse_lazy('blog:list')
 
     def form_valid(self, form):
         if form.is_valid():
@@ -19,8 +19,11 @@ class BlogCreateView(CreateView):
 
         return super().form_valid(form)
 
+    def test_func(self):
+        return self.request.user.has_perm('blog.add_blog')
 
-class BlogUpdateView(UpdateView):
+
+class BlogUpdateView(UserPassesTestMixin, UpdateView):
     model = Blog
     fields = ('title', 'content', 'is_published', 'preview')
 
@@ -33,11 +36,18 @@ class BlogUpdateView(UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('catalog:blog_view', kwargs={'pk': self.object.pk})
+        return reverse('blog:view', kwargs={'pk': self.object.pk})
 
-class BlogDeleteView(DeleteView):
+    def test_func(self):
+        return self.request.user.has_perm('blog.change_blog')
+
+
+class BlogDeleteView(UserPassesTestMixin, DeleteView):
     model = Blog
-    success_url = reverse_lazy('catalog:blog_list')
+    success_url = reverse_lazy('blog:list')
+
+    def test_func(self):
+        return self.request.user.has_perm('blog.delete_blog')
 
 
 class BlogListView(ListView):
