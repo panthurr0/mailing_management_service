@@ -24,7 +24,7 @@
   },
   {
     "model": "users.user",
-    "pk": 6,
+    "pk": 3,
     "fields": {
       "password": "pbkdf2_sha256$720000$J9e28Oe9Q3N9wJ7qiTBjq6$dpUcP3zgLOW75II+oczdg5+cEZiq3/g3SD/+dVQYKac=",
       "last_login": "2024-05-15T11:24:40.996Z",
@@ -41,6 +41,32 @@
       "token": null,
       "groups": [],
       "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$xYMAzdlxphlQAKHnSrQwrF$9QprJGwpvJuzT1SHM4r+SmmkgLr163knQqWFIbN9L18=",
+      "last_login": "2024-05-16T11:41:55.067Z",
+      "is_superuser": false,
+      "first_name": "Content",
+      "last_name": "Manager",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-16T11:38:12Z",
+      "email": "cm@con.man",
+      "avatar": "",
+      "phone_number": null,
+      "country": null,
+      "token": null,
+      "groups": [],
+      "user_permissions": [
+        37,
+        38,
+        39,
+        40
+      ]
     }
   }
 ]
