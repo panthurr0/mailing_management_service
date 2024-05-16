@@ -19,30 +19,9 @@ DATA_BLOG = pathlib.Path(ROOT, 'json_data', 'blog.json')
 class Command(BaseCommand):
 
     @staticmethod
-    def json_read_categories() -> list:
-        # Здесь мы получаем данные из фикстур с категориями
-        with open(DATA_CATEGORY) as file:
-            file_info = json.load(file)
-        return [info for info in file_info]
-
-    @staticmethod
-    def json_read_products() -> list:
-        # Здесь мы получаем данные из фикстур с продуктами
-        with open(DATA_PRODUCT) as file:
-            file_info = json.load(file)
-        return [info for info in file_info]
-
-    @staticmethod
-    def json_read_versions() -> list:
-        # Здесь мы получаем данные из фикстур с версиями
-        with open(DATA_VERSIONS) as file:
-            file_info = json.load(file)
-        return [info for info in file_info]
-
-    @staticmethod
-    def json_read_blogs() -> list:
-        # Здесь мы получаем данные из фикстур с блогами
-        with open(DATA_BLOG) as file:
+    def json_read(path) -> list:
+        # Здесь мы получаем данные из фикстур
+        with open(path) as file:
             file_info = json.load(file)
         return [info for info in file_info]
 
@@ -64,7 +43,7 @@ class Command(BaseCommand):
                 "blog_blog RESTART IDENTITY CASCADE;")
 
         # Заполнение категорий
-        for category in Command.json_read_categories():
+        for category in Command.json_read(DATA_CATEGORY):
             category_fields = category.get('fields')
             category_for_create.append(
                 Category(category_title=category_fields.get('category_title'),
@@ -74,7 +53,7 @@ class Command(BaseCommand):
         Category.objects.bulk_create(category_for_create)
 
         # Заполнение продуктов
-        for product in Command.json_read_products():
+        for product in Command.json_read(DATA_PRODUCT):
             product_fields = product.get('fields')
             product_for_create.append(
                 Product(product_title=product_fields.get('product_title'),
@@ -88,7 +67,7 @@ class Command(BaseCommand):
         Product.objects.bulk_create(product_for_create)
 
         # Заполнение версий
-        for version in Command.json_read_versions():
+        for version in Command.json_read(DATA_VERSIONS):
             version_fields = version.get('fields')
             version_for_create.append(
                 Version(product=Product.objects.get(pk=version_fields.get('product')),
@@ -99,7 +78,7 @@ class Command(BaseCommand):
         Version.objects.bulk_create(version_for_create)
 
         # Заполнение блогов
-        for blog in Command.json_read_blogs():
+        for blog in Command.json_read(DATA_BLOG):
             blog_fields = blog.get('fields')
             blog_for_create.append(
                 Blog(title=blog_fields.get('title'),

@@ -1,0 +1,46 @@
+[
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$xYMAzdlxphlQAKHnSrQwrF$9QprJGwpvJuzT1SHM4r+SmmkgLr163knQqWFIbN9L18=",
+      "last_login": "2024-05-15T11:13:32.625Z",
+      "is_superuser": false,
+      "first_name": "test",
+      "last_name": "moder",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-05-11T22:18:32Z",
+      "email": "olapopaola@mail.ru",
+      "avatar": "",
+      "phone_number": null,
+      "country": null,
+      "token": null,
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$J9e28Oe9Q3N9wJ7qiTBjq6$dpUcP3zgLOW75II+oczdg5+cEZiq3/g3SD/+dVQYKac=",
+      "last_login": "2024-05-15T11:24:40.996Z",
+      "is_superuser": false,
+      "first_name": "user",
+      "last_name": "w/o perms",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-05-15T11:11:35.661Z",
+      "email": "tester@sky.pro",
+      "avatar": "",
+      "phone_number": null,
+      "country": null,
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
