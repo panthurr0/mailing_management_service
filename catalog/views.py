@@ -7,7 +7,8 @@ from django.views import View
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 
 from catalog.forms import ProductForm, VersionForm, ProductModerForm, ProductSuperUserForm
-from catalog.models import Product, Version
+from catalog.models import Product, Version, Category
+from catalog.services import get_cached_category
 
 
 class ProductListView(LoginRequiredMixin, ListView):
@@ -84,6 +85,13 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
                 "catalog.can_edit_product_description") and user.has_perm("catalog.can_edit_product_category"):
             return ProductModerForm
         raise PermissionDenied
+
+
+class CategoryListView(ListView):
+    model = Category
+
+    def get_queryset(self):
+        return get_cached_category()
 
 
 class ContactsView(View):
