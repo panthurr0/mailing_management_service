@@ -1,10 +1,29 @@
-1. python3 manage.py migrate
-2. python3 manage.py createsu to create superuser
-3. python3 manage.py clear_permissions
-4. python3 manage.py loaddata json_data/auth.json
-5. python3 manage.py loaddata json_data/users.json to apply users(perms and logs below)
-6. python3 manage.py fill to apply fixtures
-7. change EMAIL_HOST_USER and EMAIL_HOST_PASSWORD in config/settings.py to use mail verification
+
+
+
+
+
+
+
+
+
+## Getting started
+1. Устанавливаем poetry зависимости:\
+   `pip install poetry
+   poetry install
+   poetry shell`
+2. Создать файл "/.env" и описать в нем все значения из "/.env-sample"
+3. Применяем миграции:\
+   `python3 manage.py migrate`
+4. Создание пользователей и групп: # логи и права описаны ниже\
+   `python manage.py createsu
+   python manage.py clear_permissions
+   python manage.py loaddata json_data/auth.json
+   python manage.py loaddata json_data/users.json`
+4. Устанавливаем фикстуры:\
+   `python manage.py fill`
+5. Запуск приложения:\
+   `python manage.py runserver`
 
 logins:
 
