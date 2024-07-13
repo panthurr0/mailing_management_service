@@ -1,13 +1,20 @@
+# Сервис управления рассылками
 
+Чтобы удержать текущих клиентов, часто используют вспомогательные, или «прогревающие», рассылки для информирования и
+привлечения клиентов. В проекте реализован сервис управления рассылками, администрирования и получения статистики, а
+также раздел блога, для развития популярности сервиса в интернете.
 
+## Стэк:
 
+<div>
+   <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" alt="django" width="40" height="40"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original-wordmark.svg" alt="psql" width="40" height="40"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original-wordmark.svg" alt="bootstrap" width="40" height="40"/>&nbsp;
+   <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" alt="html" width="40" height="40"/>
+</div>
+## Getting started:
 
-
-
-
-
-
-## Getting started
 1. Устанавливаем poetry зависимости:\
    `pip install poetry
    poetry install
@@ -16,13 +23,15 @@
 3. Применяем миграции:\
    `python3 manage.py migrate`
 4. Создание пользователей и групп: # логи и права описаны ниже\
-   `python manage.py createsu
-   python manage.py clear_permissions
-   python manage.py loaddata json_data/auth.json
-   python manage.py loaddata json_data/users.json`
-4. Устанавливаем фикстуры:\
+       `
+       python manage.py createsu && \
+       python manage.py clear_permissions && \
+       python manage.py loaddata json_data/auth.json && \
+       python manage.py loaddata json_data/users.json
+       `
+5. Устанавливаем фикстуры:\
    `python manage.py fill`
-5. Запуск приложения:\
+6. Запуск приложения:\
    `python manage.py runserver`
 
 logins:
