@@ -7,6 +7,7 @@
 ## Стэк:
 
 <div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original-wordmark.svg" alt="python" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/django/django-plain.svg" alt="django" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original-wordmark.svg" alt="psql" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/>&nbsp;
@@ -23,12 +24,12 @@
 3. Применяем миграции:\
    `python3 manage.py migrate`
 4. Создание пользователей и групп: # логи и права описаны ниже\
-       `
-       python manage.py createsu && \
-       python manage.py clear_permissions && \
-       python manage.py loaddata json_data/auth.json && \
-       python manage.py loaddata json_data/users.json
-       `
+   `
+   python manage.py createsu && \
+   python manage.py clear_permissions && \
+   python manage.py loaddata json_data/auth.json && \
+   python manage.py loaddata json_data/users.json
+   `
 5. Устанавливаем фикстуры:\
    `python manage.py fill`
 6. Запуск приложения:\
