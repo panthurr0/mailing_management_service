@@ -14,6 +14,14 @@
    <img src="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-original-wordmark.svg" alt="bootstrap" width="40" height="40"/>&nbsp;
    <img src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original-wordmark.svg" alt="html" width="40" height="40"/>
 </div>
+
+В проекте реализованы CRUD-механизмы для продуктов и блога, а также написан HTML для них.\
+[Продукты кешируются с помощью редиса](catalog/urls.py)\
+[Описание форм-классов](catalog/forms.py)\
+
+
+
+
 ## Getting started:
 
 1. Устанавливаем poetry зависимости:\
